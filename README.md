@@ -1,6 +1,6 @@
 # Florence-2 vs. Specialist Models Under Motion Blur
 
-**DS 677 – Deep Learning · NJIT · Industry Application Track**
+**DS 677 – Deep Learning · NJIT · Industry Application Track - Vivek Shah and Victor Figueredo**
 
 ## Claim Statement
 
