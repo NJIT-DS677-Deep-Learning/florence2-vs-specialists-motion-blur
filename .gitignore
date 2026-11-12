@@ -7,3 +7,14 @@ __pycache__/
 
 # Local environment variables
 .env
+
+# Data and model files: never commit
+data/
+*.zip
+*.jpg
+*.jpeg
+!tests/*.jpg
+*.pt
+*.pth
+*.safetensors
+.ipynb_checkpoints/

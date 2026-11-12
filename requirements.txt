@@ -12,3 +12,6 @@ timm==1.0.31
 # PyTorch (install CUDA-compatible build separately)
 torch==2.10.0
 torchvision==0.25.0
+
+# Data loading and COCO evaluation
+pycocotools==2.0.11
