@@ -1,0 +1,8 @@
+model,task,blur_type,blur_px,seed,metric,score,n_images,date,notes
+Florence-2-base-ft,captioning,none,0,0,CIDEr,140.0123,5000,2026-11-18,clean baseline; 3-beam caption generation
+Florence-2-base-ft,captioning,none,0,0,BLEU-4,41.424,5000,2026-11-18,clean baseline; 3-beam caption generation
+Florence-2-base-ft,detection,none,0,0,mAP,39.9452,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
+Florence-2-base-ft,detection,none,0,0,mAP50,56.3713,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
+Florence-2-base-ft,detection,none,0,0,AP_small,22.4386,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
+Florence-2-base-ft,detection,none,0,0,AP_medium,44.3374,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
+Florence-2-base-ft,detection,none,0,0,AP_large,58.5103,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases

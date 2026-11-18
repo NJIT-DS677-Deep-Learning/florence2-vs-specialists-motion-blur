@@ -18,3 +18,7 @@ data/
 *.pth
 *.safetensors
 .ipynb_checkpoints/
+# Wulver SLURM output logs
+*.log
+*.out
+*.err
