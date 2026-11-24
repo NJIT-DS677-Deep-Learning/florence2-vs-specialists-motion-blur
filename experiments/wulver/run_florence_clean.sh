@@ -16,6 +16,9 @@ project_dir="$course_dir/florence2-vs-specialists-motion-blur"
 
 task="${1:?Specify captioning or detection}"
 limit="${2:-}"
+blur_type="${3:-linear}"
+blur_px="${4:-0}"
+seed="${5:-0}"
 
 module load CUDA
 module load Miniforge3
@@ -40,9 +43,14 @@ case "$task" in
         ;;
 esac
 
-output_dir="$course_dir/florence_runs/${task}_clean_${SLURM_JOB_ID}"
+output_dir="$course_dir/florence_runs/${task}_${blur_type}_${blur_px}px_seed${seed}_${SLURM_JOB_ID}"
 
-args=(--output-dir "$output_dir")
+args=(
+    --output-dir "$output_dir"
+    --blur-type "$blur_type"
+    --blur-px "$blur_px"
+    --seed "$seed"
+)
 
 if [ -n "$limit" ]; then
     args+=(--limit "$limit")

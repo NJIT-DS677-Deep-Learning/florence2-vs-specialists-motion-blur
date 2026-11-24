@@ -14,6 +14,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--blur-type", choices=["linear", "shake"], default="linear")
+    parser.add_argument("--blur-px", type=int, choices=[0, 15, 30, 45], default=0)
+    parser.add_argument("--seed", type=int, choices=[0, 1, 2], default=0)
     args = parser.parse_args()
 
     items = load_karpathy_test()
@@ -52,7 +55,9 @@ def main():
     result = {
         "model": MODEL_ID,
         "split": "COCO Karpathy test",
-        "blur_px": 0,
+        "blur_type": args.blur_type,
+        "blur_px": args.blur_px,
+        "seed": args.seed,
         "n_images": len(predictions),
         "inference_seconds": round(inference_seconds, 2),
         **score_captions(predictions, references),
