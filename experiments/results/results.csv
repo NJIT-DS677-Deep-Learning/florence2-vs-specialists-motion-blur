@@ -6,3 +6,15 @@ Florence-2-base-ft,detection,none,0,0,mAP50,56.3713,5000,2026-11-18,clean baseli
 Florence-2-base-ft,detection,none,0,0,AP_small,22.4386,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
 Florence-2-base-ft,detection,none,0,0,AP_medium,44.3374,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
 Florence-2-base-ft,detection,none,0,0,AP_large,58.5103,5000,2026-11-18,clean baseline; constant score 1.0; 9 fixed category aliases
+BLIP-base,captioning,none,0,0,CIDEr,106.1629,5000,2026-11-25,clean baseline; 3-beam caption generation; no prompt; float16
+BLIP-base,captioning,none,0,0,BLEU-4,33.7335,5000,2026-11-25,clean baseline; 3-beam caption generation; no prompt; float16
+DETR-ResNet-50,detection,none,0,0,mAP,42.0746,5000,2026-11-25,clean baseline; official protocol: DETR confidence scores
+DETR-ResNet-50,detection,none,0,0,mAP50,62.3181,5000,2026-11-25,clean baseline; official protocol: DETR confidence scores
+DETR-ResNet-50,detection,none,0,0,AP_small,21.373,5000,2026-11-25,clean baseline; official protocol: DETR confidence scores
+DETR-ResNet-50,detection,none,0,0,AP_medium,45.9696,5000,2026-11-25,clean baseline; official protocol: DETR confidence scores
+DETR-ResNet-50,detection,none,0,0,AP_large,61.0604,5000,2026-11-25,clean baseline; official protocol: DETR confidence scores
+DETR-ResNet-50,detection,none,0,0,mAP,30.488,5000,2026-11-25,clean baseline; matched protocol: score >= 0.925 kept; constant score 1.0
+DETR-ResNet-50,detection,none,0,0,mAP50,45.9371,5000,2026-11-25,clean baseline; matched protocol: score >= 0.925 kept; constant score 1.0
+DETR-ResNet-50,detection,none,0,0,AP_small,13.2424,5000,2026-11-25,clean baseline; matched protocol: score >= 0.925 kept; constant score 1.0
+DETR-ResNet-50,detection,none,0,0,AP_medium,34.1906,5000,2026-11-25,clean baseline; matched protocol: score >= 0.925 kept; constant score 1.0
+DETR-ResNet-50,detection,none,0,0,AP_large,47.6974,5000,2026-11-25,clean baseline; matched protocol: score >= 0.925 kept; constant score 1.0

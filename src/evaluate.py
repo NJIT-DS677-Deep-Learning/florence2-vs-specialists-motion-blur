@@ -94,7 +94,7 @@ def save_result(row, path=os.path.join(RESULTS_DIR, "results.csv")):
   os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
   new_file = not os.path.exists(path)
   with open(path, "a", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=RESULTS_COLUMNS)
+    writer = csv.DictWriter(f, fieldnames=RESULTS_COLUMNS, lineterminator="\n")
     if new_file:
       writer.writeheader()
     # Missing columns are left blank instead of causing an error
