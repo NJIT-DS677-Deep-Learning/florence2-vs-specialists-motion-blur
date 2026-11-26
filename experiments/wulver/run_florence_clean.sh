@@ -37,6 +37,12 @@ case "$task" in
     detection)
         module_name="src.run_florence_detection"
         ;;
+    blip_captioning)
+        module_name="src.run_blip_captioning"
+        ;;
+    detr_detection)
+        module_name="src.run_detr_detection"
+        ;;
     *)
         echo "Unknown task: $task"
         exit 1

@@ -6,6 +6,8 @@ from time import perf_counter
 import torch
 
 from src.data import load_karpathy_test, open_image
+from src.blur import apply_blur
+from src.config import BLUR_SETTINGS
 from src.evaluate import score_captions
 from src.florence_inference import MODEL_ID, generate_caption, load_florence
 
@@ -15,7 +17,12 @@ def main():
     parser.add_argument("--limit", type=int)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--blur-type", choices=["linear", "shake"], default="linear")
-    parser.add_argument("--blur-px", type=int, choices=[0, 15, 30, 45], default=0)
+    parser.add_argument(
+        "--blur-px",
+        type=int,
+        choices=sorted({px for levels in BLUR_SETTINGS.values() for px in levels}),
+        default=0,
+    )
     parser.add_argument("--seed", type=int, choices=[0, 1, 2], default=0)
     args = parser.parse_args()
 
@@ -39,6 +46,9 @@ def main():
     for index, item in enumerate(items, start=1):
         image_id = item["image_id"]
         with open_image(item["path"]) as image:
+            image = apply_blur(
+                image, args.blur_type, args.blur_px, args.seed, image_id
+            )
             predictions[image_id] = generate_caption(
                 model, processor, image, device
             )

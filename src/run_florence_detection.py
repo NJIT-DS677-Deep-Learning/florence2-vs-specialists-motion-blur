@@ -7,6 +7,8 @@ import torch
 
 from src.category_mapping import normalize_category
 from src.data import load_val2017, open_image
+from src.config import BLUR_SETTINGS
+from src.blur import apply_blur
 from src.evaluate import score_detections, to_coco_box
 from src.florence_inference import MODEL_ID, load_florence, detect_objects
 
@@ -16,7 +18,12 @@ def main():
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--blur-type", choices=["linear", "shake"], default="linear")
-    parser.add_argument("--blur-px", type=int, choices=[0, 15, 30, 45], default=0)
+    parser.add_argument(
+        "--blur-px",
+        type=int,
+        choices=sorted({px for levels in BLUR_SETTINGS.values() for px in levels}),
+        default=0,
+    )
     parser.add_argument("--seed", type=int, choices=[0, 1, 2], default=0)
     args = parser.parse_args()
 
@@ -50,6 +57,9 @@ def main():
         image_id = item["image_id"]
 
         with open_image(item["path"]) as image:
+            image = apply_blur(
+                image, args.blur_type, args.blur_px, args.seed, image_id
+            )
             output = detect_objects(
                 model, processor, image, device
             )
